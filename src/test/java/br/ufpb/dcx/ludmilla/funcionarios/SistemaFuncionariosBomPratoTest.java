@@ -26,8 +26,9 @@ public class SistemaFuncionariosBomPratoTest {
                     sistema.funcionarioJaExiste(
                             "333.333.333-33"));
 
-            sistema.pesquisarFuncionario(
-                    "333.333.333-33");
+            Funcionario f1 =
+                    sistema.pesquisarFuncionario(
+                            "333.333.333-33");
 
             sistema.cadastrarFuncionario(
                     "222.222.222-22",
@@ -37,7 +38,9 @@ public class SistemaFuncionariosBomPratoTest {
 
             assertEquals(
                     2,
-                    sistema.pesquisarFuncionariosComSalarioMaiorQue(2000)
+                    sistema
+                            .pesquisarFuncionariosComSalarioMaiorQue(
+                                    2000)
                             .size());
 
             assertEquals(
@@ -48,29 +51,6 @@ public class SistemaFuncionariosBomPratoTest {
         } catch (FuncionarioJaExisteException |
                  FuncionarioInexistenteException e) {
 
-            fail("Não deveria lançar exceção");
-        }
-    }
-
-    @Test
-    public void testaFuncionarioJaExiste() {
-
-        SistemaFuncionariosBomPrato sistema =
-                new SistemaFuncionariosBomPrato();
-
-        try {
-
-            sistema.cadastrarFuncionario(
-                    "111.111.111-11",
-                    "Maria",
-                    TipoFuncionario.GERENTE,
-                    3000);
-
-            assertTrue(
-                    sistema.funcionarioJaExiste(
-                            "111.111.111-11"));
-
-        } catch (Exception e) {
             fail("Não deveria lançar exceção");
         }
     }
